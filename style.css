@@ -1,0 +1,119 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  font-family: Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  flex-direction: column;
+}
+
+.hidden {
+  display: none;
+}
+
+#animation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+svg {
+  width: 200px;
+  stroke: #f35ca2;
+  fill: none;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.heartbeat {
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  animation: pulse 2s infinite linear;
+}
+
+@keyframes pulse {
+  0% { stroke-dashoffset: 300; }
+  50% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -300; }
+}
+
+.zoom-out {
+  animation: zoomOut 1s forwards ease-in;
+}
+
+@keyframes zoomOut {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(8);
+    opacity: 0;
+  }
+}
+
+.input-container, .success-message {
+  text-align: center;
+  z-index: 5;
+  max-width: 90%;
+}
+
+.fade-in {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+input {
+  padding: 10px;
+  font-size: 1rem;
+  width: 200px;
+  margin-top: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  font-size: 1rem;
+  background-color: #f35ca2;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button.cancelar {
+  background-color: #ccc;
+  color: #333;
+  margin-left: 10px;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+.success-message {
+  font-size: 1.2rem;
+  color: green;
+}

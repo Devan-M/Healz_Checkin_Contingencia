@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Healz Check-in</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Animação do batimento -->
+  <div id="animation">
+    <svg viewBox="0 0 200 100">
+      <path class="heartbeat" d="M 0 70 L 20 70 L 30 30 L 40 90 L 50 70 L 70 70" />
+    </svg>
+  </div>
+
+  <!-- Formulário de CPF -->
+  <div id="cpfForm" class="input-container hidden">
+    <p id="mensagemPersonalizada"></p>
+    <input type="text" id="cpfInput" placeholder="Digite seu CPF" />
+    <br />
+    <button onclick="verificarCPF()">Confirmar</button>
+    <button onclick="cancelarCheckin()" class="cancelar">Cancelar</button>
+    <div id="error" class="error"></div>
+  </div>
+
+  <!-- Mensagem de sucesso -->
+  <div id="mensagemFinal" class="success-message hidden">
+    Aguarde, seu check-in está sendo confirmado...
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
