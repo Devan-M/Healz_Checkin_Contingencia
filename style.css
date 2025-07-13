@@ -5,17 +5,18 @@
 body {
   margin: 0;
   padding: 0;
-  background: #fff;
+  background: #F9F9F9;
   font-family: 'Inter', Arial, sans-serif;
-  /* Removido: display, align-items, justify-content, height, flex-direction */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
-
 
 .hidden {
   display: none;
 }
 
-/* Animação do batimento */
+/* Animação heartbeat */
 #animation {
   position: absolute;
   top: 50%;
@@ -60,27 +61,55 @@ svg {
   }
 }
 
-/* Container do formulário */
-.input-container,
-.success-message {
-  text-align: center;
-  z-index: 5;
-  max-width: 90%;
-  animation: fadeInUp 0.8s ease forwards;
+/* Header */
+.top-header {
+  width: 100%;
+  height: 10rem;
+  background-color: #08192d;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 1rem;
+  gap: 1rem;
 }
 
-/* Estilo da tela de login (baseado na imagem) */
+.top-header h1 {
+  flex-grow: 1;
+  text-align: center;
+  margin: 0;
+}
+
+/* Container principal */
+.login-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+/* Texto da mensagem */
+.info-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: #f0f4f8;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  font-size: 1.1rem;
+  color: #333;
+  text-align: center;
+}
+
+/* Formulário */
 .input-container {
   background: #fff;
   padding: 30px;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   width: 320px;
-}
-
-.input-container p {
-  font-size: 1rem;
-  margin-bottom: 15px;
+  text-align: center;
 }
 
 input {
@@ -123,6 +152,8 @@ button.cancelar {
 .success-message {
   font-size: 1.2rem;
   color: green;
+  text-align: center;
+  margin-top: 2rem;
 }
 
 .fade-in {
@@ -140,57 +171,38 @@ button.cancelar {
   }
 }
 
-/* Botão "Cadastrar" e link extra */
-.extra-actions {
-  margin-top: 20px;
+/* Footer */
+.footer {
+  margin-top: auto;
+  height: 4rem;
+  background-color: #F33F90;
+  color: white;
   text-align: center;
-}
-
-.extra-actions p {
-  margin: 10px 0 5px;
+  padding: 1rem 0;
   font-size: 0.9rem;
 }
 
-.btn-secondary {
-  background-color: #e91e63;
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  width: 100%;
+#conteudo {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-.forgot-link {
-  display: block;
-  margin-top: 10px;
-  font-size: 0.85rem;
-  color: #3950ec;
-  text-decoration: none;
-}
-
-.top-header {
-  width: 100%;
-  height: 10rem;
-  background-color: #08192d;
-  color: white;
+/* Splash screen que cobre tudo */
+#splash {
+  position: fixed;
+  inset: 0;
+  background-color: #F9F9F9;
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* tudo começa à esquerda */
-  padding-left: 1rem; /* um espaçamento legal da borda */
-  gap: 1rem; /* espaçamento normal entre logo e texto */
+  justify-content: center;
+  z-index: 9999;
 }
 
-.header-content {
+/* Container principal agora ocupa a tela toda */
+#conteudo {
   display: flex;
-  align-items: center;
-  gap: 0.5rem; /* espaçamento menor entre logo e texto */
-  flex-grow: 1; /* para ocupar espaço disponível */
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-.top-header h1 {
-  flex-grow: 1; /* o texto pode crescer */
-  text-align: center; /* deixa o texto centralizado no espaço dele */
-  margin: 0;
-}
