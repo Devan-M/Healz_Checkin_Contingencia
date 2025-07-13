@@ -4,30 +4,41 @@
   <meta charset="UTF-8" />
   <title>Healz Check-in</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Animação do batimento -->
-  <div id="animation">
-    <svg viewBox="0 0 200 100">
-      <path class="heartbeat" d="M 0 70 L 20 70 L 30 30 L 40 90 L 50 70 L 70 70" />
-    </svg>
-  </div>
+  <header class="top-header">
+    <img src="./images/logo-healz.svg" alt="Logo Healz" class="logo" />
+    <h1>Checkin</h1>
+  </header>
 
-  <!-- Formulário de CPF -->
-  <div id="cpfForm" class="input-container hidden">
-    <p id="mensagemPersonalizada"></p>
-    <input type="text" id="cpfInput" placeholder="Digite seu CPF" />
-    <br />
-    <button onclick="verificarCPF()">Confirmar</button>
-    <button onclick="cancelarCheckin()" class="cancelar">Cancelar</button>
-    <div id="error" class="error"></div>
-  </div>
+  <main class="login-container">
+    <p class="welcome-text"><strong>Bem-vindo(a) à Área do Paciente Healz!</strong></p>
+    <p>Para começar, insira o seu CPF e data de nascimento:</p>
 
-  <!-- Mensagem de sucesso -->
-  <div id="mensagemFinal" class="success-message hidden">
-    Aguarde, seu check-in está sendo confirmado...
-  </div>
+    <form class="form-box">
+      <input type="text" placeholder="123.456.789-00" class="input" />
+      <input type="text" placeholder="01/01/2000" class="input" />
+      <a href="#" class="forgot-password">Esqueceu a senha? <strong>Clique aqui</strong></a>
+      <button type="submit" class="btn-primary">Entrar</button>
+    </form>
 
-  <script src="script.js"></script>
+    <div class="divider">
+      <p>Não possui cadastro?</p>
+      <button class="btn-secondary">Cadastrar</button>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <img src="./images/logo-healz.svg" alt="Logo Healz rodapé" class="footer-logo" />
+    <div class="social-icons">
+      <img src="icon-facebook.svg" alt="Facebook">
+      <img src="icon-instagram.svg" alt="Instagram">
+      <img src="icon-linkedin.svg" alt="LinkedIn">
+    </div>
+    <p>© 2025. Todos os direitos reservados à Healz.</p>
+  </footer>
 </body>
 </html>
+

@@ -12,7 +12,7 @@ function getParams() {
 const dados = getParams();
 const cpfEsperado = dados.cpf?.replace(/\D/g, "");
 
-// Após 3 segundos, faz o zoom-out e depois mostra o formulário com fade-in
+// Após 3 segundos, faz o zoom-out da animação e depois mostra o formulário
 setTimeout(() => {
   const animation = document.getElementById("animation");
   animation.classList.add("zoom-out");
@@ -28,8 +28,8 @@ setTimeout(() => {
     cpfForm.classList.remove("hidden");
     cpfForm.classList.add("fade-in");
 
-  }, 1000);
-}, 3000);
+  }, 1000); // tempo da animação zoom-out
+}, 3000); // tempo de exibição da animação inicial
 
 function verificarCPF() {
   const cpfDigitado = document.getElementById("cpfInput").value.replace(/\D/g, "");
@@ -48,13 +48,18 @@ function cancelarCheckin() {
   window.history.back();
 }
 
-// Aplica máscara ao campo CPF
-const cpfInput = document.getElementById("cpfInput");
-cpfInput.addEventListener("input", () => {
-  let value = cpfInput.value.replace(/\D/g, "");
-  if (value.length > 11) value = value.slice(0, 11);
-  value = value.replace(/(\d{3})(\d)/, "$1.$2");
-  value = value.replace(/(\d{3})(\d)/, "$1.$2");
-  value = value.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
-  cpfInput.value = value;
+// Aplica máscara ao campo CPF se o elemento estiver presente
+window.addEventListener('DOMContentLoaded', () => {
+  const cpfInput = document.getElementById("cpfInput");
+
+  if (cpfInput) {
+    cpfInput.addEventListener("input", () => {
+      let value = cpfInput.value.replace(/\D/g, "");
+      if (value.length > 11) value = value.slice(0, 11);
+      value = value.replace(/(\d{3})(\d)/, "$1.$2");
+      value = value.replace(/(\d{3})(\d)/, "$1.$2");
+      value = value.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+      cpfInput.value = value;
+    });
+  }
 });
